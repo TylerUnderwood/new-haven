@@ -1,0 +1,158 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Offset Row 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+$section_wrap: $wrapper;
+$section_aside: $section_wrap / 3;
+$section_half: $section_wrap / 2;
+$section_main: ($section_wrap / 3) * 2;
+
+$section_difference: ($section_main - $section_aside) / 2;
+
+.section {
+  $self: &;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+    
+  // columns have no padding or margin and only distinguish width
+  &__column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    // trim
+    // background
+  }
+  
+  // blocks must stack inside column with optional padding and margin
+  &__block {
+    display: flex;
+    width: 100%;
+    // margin-top
+    // gutter
+    
+    &:first-child {
+      margin-top: 0;
+      padding-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+  
+  // Fill can replace __block to fill in space between blocks 
+  // Don't put any elements inside of this one
+  &__fill {
+    margin: 0 !important;
+    flex: 1 0 auto;
+    width: 100%;
+    padding: 0 !important;
+    content: '';
+  }
+
+  &__full {
+    flex: 1 0 auto;
+  }
+  
+  // wrap is what sets the max-width based on the column it is inside
+  &__wrap {
+    display: block;
+    width: 100%;
+    // gutter
+  }
+  
+  @media ( max-width: 767px ) {
+    &:not(&--reverse) {
+      flex-direction: column;
+    }
+    
+    &--reverse {
+      flex-direction: column-reverse;
+    }
+    
+    &__wrap {
+      margin-left: 0;
+      margin-right: 0;
+      max-width: unset;
+      padding: 0;
+    }
+  }
+  
+  @media ( min-width: 768px ) {
+    flex-direction: row;
+    
+    // this will be on the left
+    &__column:first-child {
+      align-items: flex-end;
+
+      #{$self}__block {
+        justify-content: flex-end;
+        padding-right: 0;
+      }
+
+      #{$self}__wrap {
+        margin-left: auto;
+        padding-left: 0;
+      }
+    }
+
+    // this will be on the right
+    &__column:last-child {
+      align-items: flex-start;
+
+      #{$self}__block {
+        justify-content: flex-start;
+        padding-left: 0;
+      }
+
+      #{$self}__wrap {
+        margin-right: auto;
+        padding-right: 0;
+      }
+    }
+
+    // the aside column
+    &__aside {
+      max-width: 33.3333%;
+
+      #{$self}__wrap {
+        max-width: $section_aside;
+      }
+    }
+    
+    // the half column
+    &__half {
+      max-width: 50%;
+
+      #{$self}__wrap {
+        max-width: $section_half;
+      }
+    }
+    
+    // the main column
+    &__main {
+      max-width: 66.6667%;
+
+      #{$self}__wrap {
+        max-width: $section_main;
+      }
+    }
+  }
+
+  @media ( min-width: $section_wrap ) {
+    &__aside {
+      max-width: calc(50% - #{$section_difference});
+    }
+    &__main {
+      max-width: calc(50% + #{$section_difference});
+    }
+  }
+}

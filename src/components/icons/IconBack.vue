@@ -1,0 +1,33 @@
+<template>
+	<svg class="icon-back" width="79" height="41" viewBox="0 0 79 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path class="show-on-hover" d="M35.7631 1.11499L66.1185 1.07666L33.5401 20.1638L65.7352 39.4042H35.0732L3.64465 20.1638L35.7631 1.11499Z" fill="currentColor" style="color: #7AADA3;"/>
+    <path d="M68.993 1V39.6725" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M77.8467 39.4042V1.07666L1.19163 1.07666V39.4042L77.8467 39.4042Z" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M1 20.2404H78" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M34.3449 1.15332L2.18811 20.2021" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M50.1358 1.15332L17.979 20.2021" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M65.8885 1.15332L33.7317 20.2021" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M34.3449 39.2509L2.18811 20.2021" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M50.1358 39.2509L17.979 20.2021" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M65.8885 39.2509L33.7317 20.2021" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M1.22998 12.5749H15.1429" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+    <path d="M15.5262 28.3275H1.34497" stroke="#AD6604" stroke-width="2" stroke-miterlimit="10"/>
+  </svg>
+</template>
+
+
+<script>
+export default {
+	name: 'IconBack',
+}
+</script>
+
+
+<style scoped>
+
+.icon-back {
+  width: 100%;
+  max-width: 90px;
+}
+
+</style>

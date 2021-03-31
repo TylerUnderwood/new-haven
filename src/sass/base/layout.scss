@@ -1,0 +1,231 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| LAYOUT: Main Layout
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* === outer === */
+.outer {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: $outer;
+
+	&--half {
+		max-width: $outer-half;
+	}
+}
+
+/* === wrapper === */
+.wrapper {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: $wrapper;
+
+	&--half {
+		max-width: $wrapper-half;
+	}
+
+	&--1\/3 {
+		max-width: calc( #{$wrapper} / 3);
+	}
+
+	&--2\/3 {
+		max-width: calc( 2 * (#{$wrapper} / 3));
+	}
+  &--left {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  &--right {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+/* === inner === */
+.inner {
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+	max-width: $inner;
+
+	&--half {
+		max-width: $inner-half !important;
+	}
+
+	&--1\/3 {
+		max-width: calc( #{$inner} / 3) !important;
+	}
+
+	&--2\/3 {
+		max-width: calc( 2 * (#{$inner} / 3)) !important;
+	}
+}
+
+
+/* === block === */
+// margin based vertical whitespace
+@mixin vert_mar {
+	@include fluid-type(margin-top margin-bottom, $min-width, $max-width, $y-space-min, $y-space-max);
+}
+// apply to this class and its modifiers
+.frame {
+	@include vert_mar;
+}
+@include above( sm ) {
+	.sm\:frame {
+		@include vert_mar;
+	}
+}
+@include above( md ) {
+	.md\:frame {
+		@include vert_mar;
+	}
+}
+@include above( lg ) {
+	.lg\:frame {
+		@include vert_mar;
+	}
+}
+
+
+/* === trim === */
+// padding based vertical whitespace
+@mixin vert_pad {
+	@include fluid-type(padding-top padding-bottom, $min-width, $max-width, $y-space-min, $y-space-max);
+}
+// apply to this class and its modifiers
+.trim {
+	@include vert_pad;
+}
+@include above( sm ) {
+	.sm\:trim {
+		@include vert_pad;
+	}
+}
+@include above( md ) {
+	.md\:trim {
+		@include vert_pad;
+	}
+}
+@include above( lg ) {
+	.lg\:trim {
+		@include vert_pad;
+	}
+}
+
+
+/* === buffer === */
+// margin based horizontal whitespace
+@mixin horz_mar {
+	@include fluid-type(margin-right margin-left, $min-width, $max-width, $x-space-min, $x-space-max);
+}
+// apply to this class and its modifiers
+.buffer {
+	@include horz_mar;
+}
+@include above( sm ) {
+	.sm\:buffer {
+		@include horz_mar;
+	}
+}
+@include above( md ) {
+	.md\:buffer {
+		@include horz_mar;
+	}
+}
+@include above( lg ) {
+	.lg\:buffer {
+		@include horz_mar;
+	}
+}
+
+
+/* === gutter === */
+// padding based horizontal whitespace
+@mixin horz_pad {
+	@include fluid-type(padding-right padding-left, $min-width, $max-width, $x-space-min, $x-space-max);
+}
+// apply to this class and its modifiers
+.gutter {
+	@include horz_pad;
+}
+@include above( sm ) {
+	.sm\:gutter {
+		@include horz_pad;
+	}
+}
+@include above( md ) {
+	.md\:gutter {
+		@include horz_pad;
+	}
+}
+@include above( lg ) {
+	.lg\:gutter {
+		@include horz_pad;
+	}
+}
+
+/* === hide === */
+// apply to this class and its modifiers
+.hide {
+	display: none !important;
+}
+@include above(xs) {
+	.xs\:hide {
+		display: none !important;
+	}
+}
+@include above(sm) {
+	.sm\:hide {
+		display: none !important;
+	}
+}
+@include above(md) {
+	.md\:hide {
+		display: none !important;
+	}
+}
+@include above(lg) {
+	.lg\:hide {
+		display: none !important;
+	}
+}
+@include above(xl) {
+	.xl\:hide {
+		display: none !important;
+	}
+}
+
+/* === show === */
+// apply to this class and its modifiers
+.show {
+	display: inherit !important;
+}
+@include above(xs) {
+	.xs\:show {
+		display: inherit !important;
+	}
+}
+@include above(sm) {
+	.sm\:show {
+		display: inherit !important;
+	}
+}
+@include above(md) {
+	.md\:show {
+		display: inherit !important;
+	}
+}
+@include above(lg) {
+	.lg\:show {
+		display: inherit !important;
+	}
+}
+@include above(xl) {
+	.xl\:show {
+		display: inherit !important;
+	}
+}

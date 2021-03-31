@@ -1,0 +1,224 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| CORE: Settings
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/*
+|–––––––––––––––––––––––––
+| Settings: COLOR
+|–––––––––––––––––––––––––
+*/
+
+/* common */
+$true-red:          #FF0000;
+$true-orange:       #FF8000;
+$true-yellow:       #FFFF00;
+$true-chartreuse:   #80FF00;
+$true-green:        #00FF00;
+$true-jade:         #00FF80;
+$true-cyan:         #00FFFF;
+$true-azure:        #0080FF;
+$true-blue:         #0000FF;
+$true-purple:       #8000FF;
+$true-magenta:      #FF00FF;
+$true-fuchsia:      #FF0080;
+
+/* gray shades */
+$white:             #ffffff;
+$off-white:         #f8f8f8;
+$cloud:             #eeeeee;
+$light-gray:        #c0c0c0;
+$gray:              #808080;
+$dark-gray:         #404040;
+$charcoal:          #333333;
+$off-black:         #202020;
+$black:             #000000;
+
+/* social media colors */
+$facebook:          #3b5998;
+$instagram:         #bc2a8d;
+$linkedin:          #0077b5;
+$periscope:         #d75444;
+$pinterest:         #c8232c;
+$soundcloud:        #FF5401;
+$twitter:           #1da1f2;
+$vimeo:             #1ab7ea;
+$youtube:           #bb0000;
+
+/* site specific */
+$background:        #fff9ea;
+$hunter-green:      #467259;
+$sage:              #7aada3;
+$brown:             #6e5b41;
+$rue:               #ad6604;
+$grey:              #8b836d;
+
+/* site dynamic */
+
+// Branding
+$primary-light:	  	$sage;
+$primary:         	$hunter-green;
+$primary-dark: 	  	$brown;
+
+$accent:            $rue;
+$accent-alt:        $background;
+
+// Text
+$text-dark:         $primary-dark;
+$text-light:        $primary-light;
+$text-white:        $white;
+
+$text-color:        $text-dark;
+
+// Headings
+$heading-color:     $primary;
+$heading-color-alt: $accent;
+
+// Links
+$link-color:        $accent;
+$link-hover:        darken($link-color, 16%);
+
+
+
+/*
+|–––––––––––––––––––––––––
+| Settings: TYPOGRAPHY
+|–––––––––––––––––––––––––
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Domine&display=swap');
+
+// font-family: 'Domine', serif;
+// font-family: 'Museo', sans-serif;
+
+/* === FONT FAM === */
+
+/* default */
+$default-serif:         Times, serif;
+$default-sans-serif:    Arial, sans-serif;
+
+/* site fonts */
+$domine:                'Domine', serif;
+$museo:                 'Museo', sans-serif;
+
+/* dynamic fonts */
+$serif:              $domine;
+$sans-serif:         $museo;
+$geometric:          $museo;
+
+/* site dynamic fonts */
+$heading-font:       $sans-serif;
+$copy-font:          $serif;
+$link-font:          $geometric;
+
+/* === FONT SIZE === */
+
+$font-min: 	  		16px;
+$font-max: 			  20px;
+
+$font-size-sm: 		0.8rem;
+$font-size: 		  1.0rem;
+$font-size-lg: 		1.2rem;
+
+$copy-max:        22.6rem;
+
+
+
+/*
+|–––––––––––––––––––––––––
+| Settings: LAYOUT
+|–––––––––––––––––––––––––
+|
+| bp = break point
+|
+| w = width
+| h = height
+|
+| mb = mobile
+| tb = tablet
+| dt = desktop
+|
+*/
+
+/* === RESPONSIVE === */
+
+$mobile:            480px;
+$tablet:            768px;
+$desktop:           1024px;
+
+$screen-xs:         320px;
+$screen-sm:         480px;
+$screen-md:         768px;
+$screen-lg:         1024px;
+$screen-xl:         1280px;
+
+$full-hd:           1080px; // HD
+$quad-hd:           1440px; // 2K
+$ultra-hd:          2180px; // 4K
+
+/* === MAX WIDTHS === */
+
+$text-max:          36rem; // ~ 720px
+
+$min-width:         480px;
+$half-min:          $min-width / 2;
+
+$max-width:         1920px;
+$half-max:          $max-width / 2;
+
+/* === DYNAMIC MAX WIDTHS === */
+
+$inner:             54rem; // ~ 1080px
+$inner-half:        $inner / 2;
+
+$wrapper:           64rem; // ~ 1280px
+$wrapper-half:      $wrapper / 2;
+
+$outer:             72rem; // ~ 1440px
+$outer-half:        $outer / 2;
+
+
+$min-width:         786px;
+$max-width:         1600px;
+
+
+
+/* === WHITESPACE === */
+
+// Mobile vertical space
+$x-space-min: 		40px;
+// Desktop vertical space
+$x-space-max: 		80px;
+
+// Mobile horizontal space
+$y-space-min: 		40px;
+// Desktop horizontal space
+$y-space-max: 		80px;
+
+$space:           1.6rem;
+
+$space-1: 			0.4rem; // ~  8px
+$space-2: 			0.8rem; // ~ 16px
+$space-3: 			1.2rem; // ~ 24px
+$space-4: 			1.6rem; // ~ 32px
+$space-5: 			2.0rem; // ~ 40px
+$space-6: 			2.4rem; // ~ 48px
+$space-7: 			2.8rem; // ~ 56px
+$space-8: 			3.2rem; // ~ 64px
+
+
+
+/*
+|–––––––––––––––––––––––––
+| Settings: SITE VARS
+|–––––––––––––––––––––––––
+*/
+
+/* === BORDER RADIUS === */
+$round: 2px;
+
+/* === HEADER === */
+$header-pad: 1rem;
+$header-logo-ht: 2.4rem;
+$header-ht: $header-pad * 2 + $header-logo-ht;

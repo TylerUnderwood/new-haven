@@ -1,0 +1,212 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Site Menu 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+
+.menu {
+	$header_height: 4rem;
+
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: $background;
+	padding-top: $header_height;
+	padding-bottom: 0;
+	line-height: 1;
+	// font size goes here to set the padding for many of the inner components
+	font-size: 1.2rem;
+
+	&__buffer {
+		position: relative;
+		display: flex;
+		flex: 1 0 auto;
+		max-height: 100%;
+		padding: 0;
+
+		// These before and afters are for fading the nav items
+		// top and bottom as you scroll through them.
+		&:before,
+		&:after {
+			position: absolute;
+			z-index: 9;
+			left: 0;
+			width: 100%;
+			height: 1em;
+			content: '';
+		}
+
+		&:before {
+			top: 0;
+			background: linear-gradient(rgba($background, 1) 0%, 
+																	rgba($background, 0) 100%);
+		}
+
+		&:after {
+			bottom: 0;
+			background: linear-gradient(rgba($background, 0) 0%, 
+																	rgba($background, 1) 100%);
+		}
+	}
+
+	&__inner {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-height: 100%;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding: 0;
+
+		&::before,
+		&::after {
+			display: block;
+			opacity: 0;
+			min-height: 1em;
+			content: ' ';
+		}
+	}
+
+	$menu_link_icon_width: 4rem;
+
+	&__nav {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		line-height: 2;
+		font-size: 18px;
+	}
+
+	&__subnav {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		line-height: 2;
+		font-size: 14px;
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		line-height: 2;
+		font-size: 11px;
+	}
+
+	&__link {
+		display: flex;
+		align-items: center;
+		text-transform: uppercase;
+		font-family: $geometric;
+		color: $primary;
+		transition: color 300ms ease,
+								transform 300ms ease;
+
+		&:hover {
+			color: $accent;
+		}
+		
+		&__icon {
+			display: none;
+			transform: rotate(180deg);
+		}
+
+		&.active--exact {
+			cursor: not-allowed;
+			color: $accent;
+		}
+	}
+
+	&__close {
+		position: fixed;
+		z-index: 99;
+		top: 0;
+		right: 0;
+		bottom: unset;
+		left: unset;
+		padding: 2rem;
+
+		img {
+			width: 32px;
+			height: 32px;
+		}
+	}
+	
+	// ANIMATIONS
+	@keyframes open_menu {
+		from {
+			opacity: 0;
+			transform: scale(1.05);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes close_menu {
+		from {
+			opacity: 1;
+			transform: scale(1);
+		}
+		to {
+			opacity: 0;
+			transform: scale(1.05);
+		}
+	}
+
+	// ACTIVE STATES
+	.menu-closed & {
+		visibility: hidden;
+	}
+
+	.menu-opening & {
+		animation: open_menu 500ms ease-in-out forwards;
+	}
+
+	.menu-opened & {
+		visibility: visible;
+	}
+
+	.menu-closing & {
+		animation: close_menu 500ms ease-in-out forwards;
+	}
+
+	// MEDIA QUERIES
+	@include above( mobile ) {
+		font-size: 1.4rem;
+
+		&__nav {
+			font-size: 24px;
+		}
+
+		&__subnav {
+			font-size: 18px;
+		}
+	
+		&__info {
+			font-size: 12px;
+		}
+	}
+
+	@include above( tablet ) {
+		font-size: 1.6rem;
+
+		&__nav {
+			font-size: 30px;
+		}
+
+		&__subnav {
+			font-size: 20px;
+		}
+	}
+}

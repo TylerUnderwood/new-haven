@@ -1,0 +1,192 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Accent Fork
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.accent-fork {
+	display: flex;
+	position: relative;
+	color: $accent;
+
+	$self: &;
+
+	$width: 4rem;
+	$height: 7px;
+	$tines: 1px;
+	$base: 1rem;
+
+	&__base {
+		background-color: currentColor;
+		content: '';
+	}
+
+	&--up,
+	&--down {
+		width: $height;
+		height: $width;
+		border-left: $tines solid currentColor;
+		border-right: $tines solid currentColor;
+		
+		#{$self}__base {
+			width: 100%;
+			height: $base;
+		}
+	}
+
+	&--up {
+		align-items: flex-end;
+	}
+
+	&--down {
+		align-items: flex-start;
+	}
+
+	&--right,
+	&--left {
+		width: $width;
+		height: $height;
+		border-top: $tines solid currentColor;
+		border-bottom: $tines solid currentColor;
+		
+		#{$self}__base {
+			width: $base;
+			height: 100%;
+		}
+	}
+
+	&--right {
+		justify-content: flex-start;
+	}
+
+	&--left {
+		justify-content: flex-end;
+	}
+
+
+	&--homepage {
+		@include above( mobile ) {
+			width: 6rem;
+			
+			#{$self}__base {
+				width: 4rem;
+			}
+		}
+
+		@include above( tablet ) {
+			width: 8rem;
+			
+			#{$self}__base {
+				width: 5rem;
+			}
+		}
+
+		@include above( desktop ) {
+			width: 12rem;
+			height: 8px;
+			
+			#{$self}__base {
+				width: 8rem;
+			}
+		}
+	}
+
+
+
+	&__plus {
+		position: absolute;
+		// border-right: $tines solid currentColor;
+		// border-left: $tines solid currentColor;
+		left: unset;
+		background-color: currentColor;
+		animation-duration: 600ms;
+		animation-timing-function: ease;
+		content: '';
+	}
+}
+
+@keyframes fork_plus_hover {
+	0% {
+		top: -1px;
+		right: 0;
+		transform: translate(0, 0);
+		width: 1rem;
+		height: 7px;
+	}
+	60% {
+		top: -1px;
+		right: 50%;
+		transform: translate(3px, 0);
+		width: 6px;
+		height: 7px;
+	}
+	100% {
+		top: 4px;
+		right: 50%;
+		transform: translate(3px, -50%);
+		width: 6px;
+		height: 32px;
+	}
+}
+
+.fork-plus-hover {
+	.accent-fork {
+		width: 32px;
+		height: 8px;
+		transition: all 600ms ease;
+	}
+
+	.accent-fork__plus {
+		top: 4px;
+		right: 50%;
+		transform: translate(3px, -50%);
+		width: 6px;
+		height: 32px;
+		animation-name: fork_plus_hover;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(.6,.0,.6,.4);
+	}
+}
+
+@keyframes fork_plus_leave {
+	0% {
+		top: 4px;
+		right: 50%;
+		transform: translate(3px, -50%);
+		width: 6px;
+		height: 32px;
+	}
+	40% {
+		top: -1px;
+		right: 50%;
+		transform: translate(3px, 0);
+		width: 6px;
+		height: 8px;
+	}
+	100% {
+		top: -1px;
+		right: 0;
+		transform: translate(0, 0);
+		width: 1rem;
+		height: 8px;
+	}
+}
+
+.fork-plus-leave {
+	.accent-fork {
+		width: 4rem;
+		height: 8px;
+		transition: all 600ms ease;
+	}
+
+	.accent-fork__plus {
+		top: -1px;
+		right: 0;
+		transform: translate(0, 0);
+		width: 1rem;
+		height: 8px;
+		animation-name: fork_plus_leave;
+		animation-fill-mode: forwards;
+		animation-timing-function: cubic-bezier(.4,.6,.4,.99);
+	}
+}

@@ -1,0 +1,90 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Project CTA
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.project-cta {
+  visibility: visible;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__figure {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__content {
+    flex-direction: column;
+  }
+
+  &__label {
+    padding-bottom: 1.2rem;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__list {
+    visibility: visible;
+  }
+
+  @include above(md) {
+    &__inner {
+      flex-direction: row;
+    }
+
+    &__content {
+      padding-top: 3rem;
+      padding-left: 3rem;
+    }
+    
+    &__figure {
+      margin: 0;
+      width: 50%;
+    }
+
+    &__image {
+      max-width: 400px;
+    }
+
+    &__label {
+      padding-bottom: 1rem;
+    }
+  }
+
+  @include above(lg) {
+    &__column {
+      width: 50%;
+    }
+    
+    &__figure {
+      flex-direction: row;
+      justify-content: flex-end;
+      max-width: 640px;
+    }
+
+    &__image {
+      margin-left: 3rem;
+    }
+
+    &__content {
+      padding-left: 5rem;
+    }
+
+    &__label {
+      padding-right: 3rem;
+      padding-bottom: 0;
+    }
+  }
+}

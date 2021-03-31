@@ -1,0 +1,44 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| LAYOUT: Auto Wrap
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* === AUTO WRAP === */
+// Automaticly wrap items when they get too small and before they touch
+// Use padding to space this from other elements or put insde an element that has spacing
+
+.auto-wrap {
+	$self: &;
+
+	display: flex;
+	flex-flow: row wrap;
+	margin: -$space / 2;
+
+	&__item {
+		margin: $space / 2;
+	}
+
+	&--sm {
+		margin: -$space / 4;
+
+		#{$self}__item {
+			margin: $space / 4;
+		}
+	}
+
+	&--lg {
+		margin: -$space;
+		
+		#{$self}__item {
+			margin: $space;
+		}
+	}
+}
+
+/* === FILLER === */
+// This is used as a sibling element inside a flex row to fill empty space
+
+.filler {
+	flex: 1 1 auto;
+}

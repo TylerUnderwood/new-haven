@@ -1,0 +1,89 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Hero 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.hero {
+	$self: &;
+
+	overflow: hidden;
+
+	&__image {
+		width: 100%;
+	}
+
+	&__inner {
+		position: relative;
+		overflow: hidden;
+	}
+
+	&__outline {
+		position: absolute;
+		top: 7%;
+		right: 5%;
+		bottom: 0;
+		left: 5%;
+		border: 2px solid $background;
+		border-bottom: none;
+	}
+
+	&__curve {
+		position: absolute;
+		top: unset;
+		right: -4px;
+		bottom: -1px;
+		left: -4px;
+		min-width: calc(100% + 8px);
+	}
+
+	&__accent {
+		display: block;
+		position: absolute;
+		left: 50%;
+		transform: translate(-50%, -100%);
+		width: 4rem;
+	}
+
+	&__deco {
+		width: 100%;
+	}
+
+	/* === ANIMATIONS === */
+	@keyframes grow {
+		0% {
+			transform: scale(1.2);
+		}
+		100% {
+			transform: scale(1.0);
+		}
+	}
+
+	&[appear] {
+		#{$self}__image {
+			transition-duration: 1700ms;
+			transition-delay: 100ms;
+			transition-timing-function: cubic-bezier(.17,.65,.45,.96);
+			transform: scale(1.1);
+		}
+
+		#{$self}__outline,
+		#{$self}__curve {
+			transition-duration: 1600ms;
+			transition-delay: 300ms;
+			transition-timing-function: cubic-bezier(.17,.65,.45,.96);
+			transform: scale(1.1);
+		}
+	}
+	
+	&[data-state="active"] {
+		#{$self}__image {
+			transform: scale(1.0);
+		}
+
+		#{$self}__outline,
+		#{$self}__curve {
+			transform: scale(1.0);
+		}
+	}
+}

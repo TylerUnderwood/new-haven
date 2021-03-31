@@ -1,0 +1,179 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| CORE: Forms 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+form {
+	display: block;
+	max-width: $text-max;
+}
+
+label,
+.label {
+	white-space: nowrap;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-family: $link-font;
+	font-size: 0.8rem;
+}
+
+label[for] {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+input,
+select,
+textarea,
+fieldset,
+.input {
+	display: block;
+	margin: 0;
+	outline: none;
+	box-shadow: none;
+	border: 0;
+	border-bottom: 2px solid $link-color;
+	background-color: transparent;
+	width: 100%;
+	padding: 0.5em;
+	line-height: 1;
+	font-size: $font-size;
+	color: $text-color;
+	transition: border 300ms ease-in-out,
+				background-color 300ms ease-in-out;
+
+	&::placeholder {
+		opacity: 0.3;
+		color: inherit;
+	}
+
+	&:focus,
+	&:active {
+		border-color: $link-color;
+		background-color: transparent;
+	}
+}
+
+.input--override {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+input[readonly],
+fieldset {
+	&:focus,
+	&:active {
+		border-color: $link-color;
+		background-color: transparent;
+	}
+}
+
+legend {
+	padding: 0 0.4em;
+	margin: 0 -0.4em;
+}
+
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+textarea {
+	border: 2px solid $link-color;
+	height: 12em;
+	resize: vertical;
+	line-height: 1.4;
+}
+
+input[type="number"] {
+	-moz-appearance: textfield;
+	
+	&::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}
+
+input[type="color"] {
+	height: 2.2em;
+	padding: 0.1em;
+	cursor: pointer;
+}
+
+input[type="checkbox"] {
+	display: inline-block;
+	width: unset;
+	cursor: pointer;
+}
+
+input[type="radio"] {
+	display: inline-block;
+	width: unset;
+	cursor: pointer;
+}
+
+input[type="range"] {
+	cursor: pointer;
+}
+
+input[type="file"] {
+	cursor: pointer;
+}
+
+
+
+
+
+/* Focus Label Within */
+.hold-focus {
+	$self: &;
+	position: relative;
+
+	&__label {
+		position: absolute;
+		top: 50%;
+		transform: translateY( -50% );
+		line-height: 1rem;
+		font-size: 1rem;
+		color: $primary;
+		transition: all 300ms ease;
+	}
+
+	&__input {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+		padding-left: 4rem;
+	}
+
+	&:focus-within,
+	&.has-content {
+		#{$self}__label {
+			font-size: 0.8rem;
+		}
+	}
+
+	&.is-textarea {
+		visibility: visible;
+
+		#{$self}__label {
+			position: relative;
+			transform: translate( 0, 0 );
+			padding-top: 1rem;
+			padding-bottom: 1rem;
+		}
+
+		#{$self}__input {
+			padding-top: 0.7rem;
+			padding-bottom: 0.7rem;
+			padding-left: 1rem;
+		}
+	}
+}

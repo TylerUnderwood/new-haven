@@ -1,0 +1,162 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Modal 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* === variables === */
+
+$modalGutter: 2rem;
+$modalTime: 300ms;
+
+/* === animations === */
+
+@keyframes modal_pop_in {
+    from {
+        transform: scale(1.05);
+        opacity: 0;
+    }
+    to {
+        transform: none;
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+
+@keyframes modal_pop_out {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(0.95);
+        opacity: 0;
+        filter: blur(0);
+    }
+}
+
+@keyframes modal_fade_in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modal_fade_out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* === content === */
+
+.modal {
+	display: block;
+	position: fixed;
+	z-index: 990;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba( darken( $primary-light, 50% ), 0.5);
+	overflow: auto;
+	padding: $modalGutter $modalGutter 0 $modalGutter;
+	text-align: center;
+
+	// this is what centers the modal vertically
+	&::after {
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		content: '';
+	}
+
+	&__container {
+		display: inline-flex;
+		position: relative;
+		z-index: 998;
+		margin: $modalGutter 0;
+		max-width: 100%;
+		box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.2);
+		background-color: $white;
+		vertical-align: middle;
+	}
+
+	&__overlay {
+		display: block;
+		position: absolute;
+		z-index: 991;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		content: '';
+		cursor: pointer;
+	}
+	
+	&__close-button {
+		display: block;
+		position: absolute;
+		z-index: 999;
+		top: 0;
+		right: 0;
+		left: unset;
+		transform: translate( 60%, -60% );
+		border-radius: 50%;
+		border: 0;
+		box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.2);
+		background-color: $white;
+		width: 1.5em;
+		height: 1.5em;
+		padding: 0;
+		line-height: 0;
+		font-size: 24px;
+		color: $light-gray;
+		transition: background 300ms ease-in-out,
+		            color 300ms ease-in-out;
+		cursor: pointer;
+		
+		&::after {
+			display: block;
+			padding:  0 0 1px 1px;
+			content: "\00d7";
+		}
+	
+		&:hover,
+		&:focus {
+			background-color: $link-color;
+			color: $text-color;
+		}
+	}
+
+	$self: &;
+	
+	&--closed {
+		visibility: hidden;
+
+		#{$self}__container {
+			visibility: hidden;
+		}
+	}
+
+	&--opening {
+		animation: modal_fade_in $modalTime forwards ease-in;
+
+		#{$self}__container {	
+			animation: modal_pop_in $modalTime forwards ease-in;
+		}
+	}
+	
+	&--opened {
+		visibility: visible;
+
+		#{$self}__container {
+			visibility: visible;
+		}
+	}
+
+	&--closing {
+		animation: modal_fade_out $modalTime forwards ease-out;
+
+		#{$self}__container {
+			animation: modal_pop_out $modalTime forwards ease-out;
+		}
+	}
+}

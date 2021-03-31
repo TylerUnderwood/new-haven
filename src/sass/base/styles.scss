@@ -1,0 +1,20 @@
+/* ==========================================================================
+===== CORE STYLES =====
+=
+= These are for styles that will always be used. The rules here should be minimal and dry.
+= When working on more specific classes and elements you don't want to have to backpedal very much, if at all.
+= Don't see the need to add any more files to this folder, what is here should cover all the core needs.
+=
+========================================================================== */
+
+@import "./variables";
+@import "./responsiveness";
+@import "./appear";
+@import "./mixins";
+@import "./body";
+@import "./typography";
+@import "./forms";
+@import "./buttons";
+@import "./media";
+@import "./dividers";
+@import "./layout";

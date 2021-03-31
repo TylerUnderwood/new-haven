@@ -1,0 +1,171 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Site Header 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+/* ===== VARIABLES ===== */
+
+
+/* ===== LAYOUT ===== */
+
+.header {
+	position: relative;
+
+	&__inner {
+		position: relative;
+		z-index: 1;
+		display: grid;
+		padding: 1.8rem 0 0;
+		grid: " back menu "
+					" .    .    " 1.6rem
+					" logo logo "
+					/ 1fr  1fr  ;
+	
+		@include above( sm ) {
+			grid: " back logo menu "
+						/ 1fr  1fr  1fr  ;
+		}
+
+		@include above( md ) {
+			padding: 4rem 0 0;
+		}
+	}
+
+	&__col {
+		display: flex;
+		align-items: center;
+	}
+
+	&__back {
+		grid-area: back;
+		justify-content: flex-start;
+	}
+
+	&__logo {
+		grid-area: logo;
+		justify-content: center;
+	}
+
+	&__menu {
+		grid-area: menu;
+		justify-content: flex-end;
+	}
+
+	/* === Components === */
+	.logo {
+		display: block;
+		width: 12rem;
+		color: $heading-color;
+		transition: opacity 500ms ease;
+	
+		&__img {
+			width: 100%;
+			fill: currentColor;
+			height: inherit;
+		}
+		
+		@include above( tablet ) {
+			width: 16rem;
+		}
+	}
+
+	/* === Layouts === */
+	.layout-homepage & {
+		&__inner {
+			padding-bottom: 3rem;
+		}
+	}
+
+	.layout-project & {
+		.logo {
+			display: none;
+		}
+
+		.back-button {
+			display: inherit !important;
+		}
+	}
+}
+
+
+.back-button {
+	display: none !important;
+	
+	&__img {
+		width: 4.5rem;
+	}
+}
+
+.menu-button {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: unset;
+	padding: 2rem;
+	// this is to visualy sug up the icon to the corner of the page
+	padding-top: calc(2rem - 5px);
+	font-size: 32px;
+	transition: color 400ms ease;
+	color: $grey;
+
+	&:hover {
+		color: $rue;
+	}
+
+	&__text {
+		display: none;
+		margin-bottom: -2px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		font-family: $geometric;
+	}
+
+	&__icon {
+		display: inline-flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: flex-end;
+		width: 1em;
+		height: 1em;
+		padding: 5px 0;
+		color: $rue;
+	
+		.bar {
+			width: 100%;
+			height: 3px;
+			background-color: currentColor;
+			content: '';
+	
+			&:nth-child(1) {
+				width: 50%;
+			}
+			&:nth-child(2) {
+				width: 90%;
+			}
+			&:nth-child(3) {
+				width: 70%;
+			}
+		}
+	}
+
+	@include above( md ) {
+		position: relative;
+		margin: -1rem;
+		padding: 1rem;
+		font-size: 20px;
+
+		&__text {
+			display: inline-block;
+		}
+
+		&__icon {
+			padding: 3px 0;
+			color: inherit;
+
+			.bar {
+				height: 2px;
+			}
+		}
+	}
+}

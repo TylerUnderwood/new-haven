@@ -1,0 +1,23 @@
+.page-title {
+	padding: 0;
+	text-transform: uppercase;
+	font-size: 6rem;
+	letter-spacing: 0.15em;
+
+	@include fluid-type(font-size, 480px, $max-width, 36px, 96px);
+
+	&__top {
+		display: block;
+	}
+
+	&__bottom {
+		display: block;
+	}
+
+	@include above( tablet ) {
+		&__bottom {
+			display: block;
+			margin-left: 2em;
+		}
+	}
+}

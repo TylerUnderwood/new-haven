@@ -1,0 +1,117 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Navigation 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.nav {
+	display: flex;
+	flex-flow: row wrap;
+	margin: -0.5em;
+
+	&__link {
+		display: block;
+		padding: 0.5em;
+		line-height: 1;
+		letter-spacing: 2px;
+		font-family: $link-font;
+		text-transform: uppercase;
+	}
+}
+
+
+.fancy-nav {
+	$fancy_nav_pad: 1.2em;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-top: -$fancy_nav_pad / 2;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: -$fancy_nav_pad;
+	font-size: 15px;
+
+	&__link {
+		position: relative;
+		display: inline-flex;
+		overflow: hidden;
+		padding: $fancy_nav_pad / 2 $fancy_nav_pad / 2 $fancy_nav_pad $fancy_nav_pad;
+		font-size: inherit;
+
+		&::before,
+		&::after {
+			position: absolute;
+			opacity: 0.1;
+			background-color: $accent;
+			transition: transform, opacity;
+			transition-timing-function: cubic-bezier(.29,.4,.15,.91);
+			content: '';
+		}
+
+		&::before {
+			top: $fancy_nav_pad / 2;
+			right: unset;
+			bottom: 0;
+			left: $fancy_nav_pad / 2;
+			transform: translateY(100%);
+			width: 2px;
+			height: unset;
+			transition-duration: 700ms;
+		}
+
+		&::after {
+			top: unset;
+			right: $fancy_nav_pad / 2;
+			bottom: $fancy_nav_pad / 2;
+			left: -$fancy_nav_pad;
+			transform: translateX(-100%);
+			width: unset;
+			height: 2px;
+			transition-duration: 1000ms;
+		}
+
+		&:hover {
+			&::before {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			&::after {
+				opacity: 1;
+				transform: translateX(0);
+			}
+		}
+
+		&.active--exact {
+			cursor: not-allowed;
+
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	&__text {
+		margin-top: -0.05em;
+		margin-bottom: -0.15em;
+		line-height: 1;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		font-size: inherit;
+		font-weight: normal;
+		font-family: "Museo", sans-serif;
+		color: $heading-color;
+
+		.active--exact & {
+			color: $accent;
+		}
+	}
+
+	@include above( sm ) {
+		font-size: 1.0rem;
+
+		&__text {
+			white-space: nowrap;
+		}
+	}
+}

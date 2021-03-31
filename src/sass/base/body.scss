@@ -1,0 +1,118 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| CORE: Body
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  @include fluid-type(font-size, $min-width, $max-width, $font-min, $font-max);
+}
+
+body {
+  overflow-x: hidden;
+  background-color: $background;
+  line-height: 1;
+  font-size: $font-size;
+  font-weight: normal;
+  font-family: $copy-font;
+  text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  color: $text-color;
+
+  // Firefox only
+  scroll-behavior: smooth;
+}
+
+.scrollable {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.scroll-lock {
+  overflow: hidden !important;
+}
+
+.body,
+.template {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  overflow: hidden;
+}
+
+#header {
+  position: relative;
+  z-index: 3;
+}
+
+#main {
+  position: relative;
+  z-index: 2;
+}
+
+#footer {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.guidelines {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  // put this inside any max-width container
+  &__border {
+    position: relative;
+    transform: translateX(-2px);
+    width: calc(100% + 4px) !important;
+    height: 100vh;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(0, 0, 255, 0.1);
+    border-top: none;
+    border-bottom: none;
+  }
+
+  // put this inside the border to label it
+  &__label {
+    position: absolute;
+    right: 0;
+    left: unset;
+    display: inline-block;
+    background-color: rgba(0, 0, 255, 0.1);
+    padding: 0.1em 0.2em;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: rgba(0, 0, 255, 0.5);
+  }
+
+  &__center {
+    position: relative;
+    left: 50%;
+    width: 0;
+    height: 100vh;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 255, 0.1);
+    border-top: none;
+    border-bottom: none;
+  }
+}

@@ -1,0 +1,43 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Icon List 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.icon-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1.6rem;
+
+  &__item {
+    display: flex;
+    padding: 1.6rem;
+    width: 100%;
+    max-width: 28rem;
+  }
+
+  &__figure {
+    flex: 0 0 30px;
+    width: 30px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    margin-left: 2rem;
+  }
+
+  @include above( md ) {
+    &__item {
+      width: 50%;
+    }
+  }
+
+  @include above( lg ) {
+    &__item {
+      width: 100%;
+    }
+  }
+}

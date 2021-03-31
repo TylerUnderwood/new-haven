@@ -1,0 +1,84 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| COMPONENTS: Quotator 
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.quotator {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    transition: opacity 800ms ease,
+                transform 1200ms ease;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    &::before {
+      display: inline-flex;
+      margin-top: -0.4rem;
+      margin-bottom: -3.7rem;
+      font-size: 5.8rem;
+      line-height: 1;
+      color: $grey;
+      content: '“';
+    }
+  }
+
+  &__copy {
+    margin-top: 1rem;
+  }
+
+  &__quote {
+    margin: 0 !important;
+    max-width: unset;
+    font-size: 2rem;
+    line-height: 1.2;
+    color: $grey;
+  }
+
+  &__cite {
+    display: inline-block;
+    margin-top: 1.6rem;
+    font-style: normal;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-family: $geometric;
+    color: $accent;
+  }
+
+  @include above( 640px ) {
+    &__block {
+      flex-direction: row;
+    }
+
+    &__copy {
+      margin-top: 1rem;
+      margin-left: 1.6rem;
+    }
+  }
+  
+  @include above( md ) {
+    &__icon::before {
+      margin-top: -0.5rem;
+      margin-bottom: -4.7rem;
+      font-size: 7.2rem;
+    }
+    &__quote {
+      font-size: 2.4rem;
+    }
+    &__cite {
+      font-size: 0.9rem;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+/*
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+| UTILITY: WIDTH
+|––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+
+.copy-max {
+  width: 100%;
+  max-width: $copy-max;
+}
+
+
+/* ===== MAX WIDTHS ===== */
+
+[class^="mxw"] { width: 100%; }
+
+/* static */
+.mxw-270 { max-width: 270px; }
+
+.mxw-480 { max-width: 480px; }
+
+.mxw-640 { max-width: 640px; }
+
+.mxw-720 { max-width: 720px; }
+
+.mxw-1080 { max-width: 1080px; }
+
+.mxw-1280 { max-width: 1280px; }
+
+.mxw-1440 { max-width: 1440px; }
+
+.mxw-1600 { max-width: 1600px; }
+
+/* dynamic */
+.mxw-copy {
+  $self: &;
+  max-width: 24rem;
+
+  @include below(sm) {
+    .sm\:#{$self} {
+      max-width: 24rem;
+    }
+  }
+
+  @include below(md) {
+    .md\:#{$self} {
+      max-width: 24rem;
+    }
+  }
+
+  @include below(lg) {
+    .lg\:#{$self} {
+      max-width: 24rem;
+    }
+  }
+}
+
+
+
+.mxw-unset {
+  $self: &;
+  max-width: unset;
+
+  @include below(sm) {
+    .sm\:#{$self} {
+      max-width: unset;
+    }
+  }
+
+  @include below(md) {
+    .md\:#{$self} {
+      max-width: unset;
+    }
+  }
+
+  @include below(lg) {
+    .lg\:#{$self} {
+      max-width: unset;
+    }
+  }
+}
